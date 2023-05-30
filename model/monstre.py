@@ -7,28 +7,24 @@ class Monstre:
         self.monster_atk_value = monster_atk_value
 
     @classmethod
-    def monstre_lvl1(cls):
+    def generate_monstre(cls, monster, min_val_atk, max_val_atk):
         return cls(
             nom = "Monstre",
-            monster = 130,
-            monster_atk_value = random.randint(50, 100)
+            monster = monster,
+            monster_atk_value = random.randint(min_val_atk, max_val_atk)
         )
+
+    @classmethod
+    def monstre_lvl1(cls):
+        return cls.generate_monstre(130, 50, 100)
 
     @classmethod
     def monstre_lvl2(cls):
-        return cls(
-            nom = "Monstre",
-            monster = 150,
-            monster_atk_value = random.randint(15, 25)
-        )
+        return cls.generate_monstre(150, 15, 25)
 
     @classmethod
     def monstre_lvl3(cls):
-        return cls(
-            nom = "Monstre",
-            monster = 170,
-            monster_atk_value = random.randint(15, 25)
-        )
+        return cls.generate_monstre(170, 15, 25)
 
     def est_vivant(self):
         return self.monster > 0

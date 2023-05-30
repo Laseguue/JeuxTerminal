@@ -11,42 +11,33 @@ class Joueur:
         self.potion_value = potion_value
         self.atk_value = atk_value
 
+    @classmethod
+    def generate_carac(cls, min_val, max_val):
+        return random.randint(min_val, max_val)
+
+    @classmethod
+    def generate_joueur(cls, lvl, player_l, potions, min_val_carac, max_val_carac, min_val_potion, max_val_potion, min_val_atk, max_val_atk):
+        return cls(
+            player_l = player_l,
+            potions = potions,
+            agilite = cls.generate_carac(min_val_carac, max_val_carac),
+            force = cls.generate_carac(min_val_carac, max_val_carac),
+            chance = cls.generate_carac(min_val_carac, max_val_carac),
+            potion_value = random.randint(min_val_potion, max_val_potion),
+            atk_value = random.randint(min_val_atk, max_val_atk)
+        )
 
     @classmethod
     def joueur_lvl1(cls):
-        return cls(
-            player_l = 150,
-            potions = 3,
-            agilite = cls.generate_carac_lvl1(),
-            force = cls.generate_carac_lvl1(),
-            chance = cls.generate_carac_lvl1(),
-            potion_value = random.randint(20, 30),
-            atk_value = random.randint(15, 25)
-        )
+        return cls.generate_joueur(1, 150, 3, 50, 100, 20, 30, 15, 25)
 
     @classmethod
     def joueur_lvl2(cls):
-        return cls(
-            player_l = 200,
-            potions = 5,
-            agilite = cls.generate_carac_lvl2(),
-            force = cls.generate_carac_lvl2(),
-            chance = cls.generate_carac_lvl2(),
-            potion_value = random.randint(30, 40),
-            atk_value = random.randint(20, 30)
-        )
+        return cls.generate_joueur(2, 200, 5, 70, 120, 30, 40, 20, 30)
 
     @classmethod
     def joueur_lvl3(cls):
-        return cls(
-            player_l = 250,
-            potions = 7,
-            agilite = cls.generate_carac_lvl3(),
-            force = cls.generate_carac_lvl3(),
-            chance = cls.generate_carac_lvl3(),
-            potion_value = random.randint(40, 50),
-            atk_value = random.randint(25, 35)
-        )
+        return cls.generate_joueur(3, 250, 7, 80, 140, 40, 50, 25, 35)
 
     def est_vivant(self):
         return self.player_l > 0
