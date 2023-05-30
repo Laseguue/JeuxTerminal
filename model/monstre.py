@@ -1,25 +1,34 @@
 import random
 
 class Monstre:
-    def __init__(self):
-        self.nom = "Monstre"
-        self.monster = 0
-        self.monster_atk_value = 0
+    def __init__(self, nom="Monstre", monster=0, monster_atk_value=0):
+        self.nom = nom
+        self.monster = monster
+        self.monster_atk_value = monster_atk_value
 
-    def monstre_lvl1(self):
-        self.monster = 130
-        self.monster_atk_value = random.randint(50, 100)
-        return self
+    @classmethod
+    def monstre_lvl1(cls):
+        return cls(
+            nom = "Monstre",
+            monster = 130,
+            monster_atk_value = random.randint(50, 100)
+        )
 
-    def monstre_lvl2(self):
-        self.monster = 130
-        self.monster_atk_value = random.randint(15, 25)
-        return self
+    @classmethod
+    def monstre_lvl2(cls):
+        return cls(
+            nom = "Monstre",
+            monster = 150,
+            monster_atk_value = random.randint(15, 25)
+        )
 
-    def monstre_lvl3(self):
-        self.monster = 130
-        self.monster_atk_value = random.randint(15, 25)
-        return self
+    @classmethod
+    def monstre_lvl3(cls):
+        return cls(
+            nom = "Monstre",
+            monster = 170,
+            monster_atk_value = random.randint(15, 25)
+        )
 
     def est_vivant(self):
         return self.monster > 0

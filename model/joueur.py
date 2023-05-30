@@ -1,46 +1,52 @@
 import random
 
 class Joueur:
-    def __init__(self):
-        self.nom = "Joueur"
-        self.player_l = 0
-        self.potions = 0
-        self.agilite = 0
-        self.force = 0
-        self.chance = 0
-        self.potion_value = 0
-        self.atk_value = 0
+    def __init__(self, nom="Joueur", player_l=0, potions=0, agilite=0, force=0, chance=0, potion_value=0, atk_value=0):
+        self.nom = nom
+        self.player_l = player_l
+        self.potions = potions
+        self.agilite = agilite
+        self.force = force
+        self.chance = chance
+        self.potion_value = potion_value
+        self.atk_value = atk_value
 
 
-    def joueur_lvl1(self):
-        self.player_l = 150
-        self.potions = 3
-        self.agilite = self.generate_carac_lvl1()
-        self.force = self.generate_carac_lvl1()
-        self.chance = self.generate_carac_lvl1()
-        self.potion_value = random.randint(20, 30)
-        self.atk_value = random.randint(15, 25)
-        return self
+    @classmethod
+    def joueur_lvl1(cls):
+        return cls(
+            player_l = 150,
+            potions = 3,
+            agilite = cls.generate_carac_lvl1(),
+            force = cls.generate_carac_lvl1(),
+            chance = cls.generate_carac_lvl1(),
+            potion_value = random.randint(20, 30),
+            atk_value = random.randint(15, 25)
+        )
 
-    def joueur_lvl2(self):
-        self.player_l = 200
-        self.potions = 5
-        self.agilite = self.generate_carac_lvl2()
-        self.force = self.generate_carac_lvl2()
-        self.chance = self.generate_carac_lvl2()
-        self.potion_value = random.randint(30, 40)
-        self.atk_value = random.randint(20, 30)
-        return self
+    @classmethod
+    def joueur_lvl2(cls):
+        return cls(
+            player_l = 200,
+            potions = 5,
+            agilite = cls.generate_carac_lvl2(),
+            force = cls.generate_carac_lvl2(),
+            chance = cls.generate_carac_lvl2(),
+            potion_value = random.randint(30, 40),
+            atk_value = random.randint(20, 30)
+        )
 
-    def joueur_lvl3(self):
-        self.player_l = 250
-        self.potions = 7
-        self.agilite = self.generate_carac_lvl3()
-        self.force = self.generate_carac_lvl3()
-        self.chance = self.generate_carac_lvl3()
-        self.potion_value = random.randint(40, 50)
-        self.atk_value = random.randint(25, 35)
-        return self
+    @classmethod
+    def joueur_lvl3(cls):
+        return cls(
+            player_l = 250,
+            potions = 7,
+            agilite = cls.generate_carac_lvl3(),
+            force = cls.generate_carac_lvl3(),
+            chance = cls.generate_carac_lvl3(),
+            potion_value = random.randint(40, 50),
+            atk_value = random.randint(25, 35)
+        )
 
     def est_vivant(self):
         return self.player_l > 0

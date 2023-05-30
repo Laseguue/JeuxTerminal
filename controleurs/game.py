@@ -18,14 +18,14 @@ class Game:
 
     def setup_partie(self, choix):
         if choix == "1":
-            self.joueur = Joueur().joueur_lvl1()
-            self.monster = Monstre().monstre_lvl1()
+            self.joueur = Joueur.joueur_lvl1()
+            self.monster = Monstre.monstre_lvl1()
         elif choix == "2":
-            self.joueur = Joueur().joueur_lvl2()
-            self.monster = Monstre().monstre_lvl1()
+            self.joueur = Joueur.joueur_lvl2()
+            self.monster = Monstre.monstre_lvl1()
         elif choix == "3":
-            self.joueur = Joueur().joueur_lvl3()
-            self.monster = Monstre().monstre_lvl1()
+            self.joueur = Joueur.joueur_lvl3()
+            self.monster = Monstre.monstre_lvl1()
         
         self.menu.afficher_joueur(self.joueur)
         self.menu.afficher_monstre(self.monster)
